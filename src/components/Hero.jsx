@@ -1,27 +1,35 @@
-export default function Hero() {
-  return (
-    <section className="relative bg-gradient-to-r from-indigo-600 to-pink-500 text-white py-20">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-8">
-        <div className="flex-1">
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
-            Hi, I’m <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-yellow-200">Pranav</span> 
-          </h1>
-          <p className="mt-6 text-lg md:text-xl max-w-xl">
-            I build modern web apps with Next.js, Tailwind and Python. I love turning ideas into polished products.
-          </p>
-          <div className="mt-8 flex gap-4">
-            <a href="#projects" className="inline-block px-6 py-3 bg-white text-indigo-600 rounded-lg font-semibold shadow hover:shadow-lg">View Projects</a>
-            <a href="/resume.pdf" className="inline-block px-6 py-3 border border-white rounded-lg hover:bg-white/10">Download Resume</a>
-          </div>
-        </div>
+"use client";
+import React from "react";
 
-        <div className="flex-1">
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl shadow-xl max-w-sm mx-auto text-center">
-            <div className="w-40 h-40 rounded-full mx-auto bg-white/10 flex items-center justify-center text-3xl font-bold">PB</div>
-            <p className="mt-4">Software Developer • Python • Next.js</p>
-          </div>
-        </div>
-      </div>
+const Hero = () => {
+  return (
+    <section className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center px-6">
+      {/* Title */}
+      <h1 className="text-5xl font-bold text-gray-900 mb-4">
+        Hi, I’m <span className="text-blue-600">Your Name</span>
+      </h1>
+
+      {/* Subtitle */}
+      <h2 className="text-xl text-gray-600 mb-6">
+        A passionate Web Developer building modern web experiences
+      </h2>
+
+      {/* Description */}
+      <p className="text-gray-500 max-w-2xl mb-8">
+        I specialize in creating responsive, user-friendly applications using
+        modern tools like React, Next.js, and Tailwind CSS. Explore my work and
+        see how I bring ideas to life through clean design and functionality.
+      </p>
+
+      {/* Call-to-action button */}
+      <a
+        href="#about"
+        className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
+      >
+        Learn More
+      </a>
     </section>
   );
-}
+};
+
+export default Hero;

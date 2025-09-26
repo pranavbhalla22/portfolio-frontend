@@ -13,19 +13,19 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="bg-gray-100 dark:bg-gray-900 py-16">
+    <section id="skills" className="bg-gradient-to-r from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-800 py-20">
       <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold mb-10 text-gray-800 dark:text-white">
+        <h2 className="text-3xl font-bold mb-12 text-gray-800 dark:text-white tracking-wide uppercase">
           Skills
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8">
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="flex flex-col items-center bg-white dark:bg-gray-800 shadow-md p-4 rounded-xl hover:shadow-xl transition"
+              className="flex flex-col items-center justify-center bg-white dark:bg-gray-900 shadow-md p-6 rounded-xl hover:shadow-xl transition transform hover:-translate-y-1"
             >
               {skill.icon}
-              <p className="mt-3 text-gray-700 dark:text-gray-300 font-medium">
+              <p className="mt-3 text-gray-700 dark:text-gray-300 font-medium text-lg">
                 {skill.name}
               </p>
             </div>

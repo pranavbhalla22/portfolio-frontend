@@ -1,43 +1,45 @@
 "use client";
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
+import { HiMenu, HiX } from "react-icons/hi"; // install react-icons if not installed
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="w-full bg-white shadow sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/">
-          <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-pink-500 cursor-pointer">
-            Pranav Bhalla
-          </span>
-        </Link>
+    <nav className="fixed top-0 left-0 w-full bg-gray-900 text-white px-6 py-4 shadow-md z-50">
+      <div className="flex justify-between items-center">
+        {/* Logo */}
+        <h1 className="text-2xl font-bold">Pranav Bhalla</h1>
 
-        <nav className="hidden md:flex gap-6 items-center text-gray-700">
-          <a href="#about" className="hover:text-indigo-600">About</a>
-          <a href="#projects" className="hover:text-indigo-600">Projects</a>
-          <a href="#contact" className="hover:text-indigo-600">Contact</a>
-          <a href="/resume.pdf" className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">Resume</a>
-        </nav>
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex gap-6">
+          <li><Link href="/">Home</Link></li>
+          <li><Link href="/about">About</Link></li>
+          <li><Link href="/skills">Skills</Link></li>
+          <li><Link href="/projects">Projects</Link></li>
+          <li><Link href="/contact">Contact</Link></li>
+        </ul>
 
-        <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu">
-          <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d={open ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-          </svg>
+        {/* Mobile Hamburger */}
+        <button
+          className="md:hidden text-3xl"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <HiX /> : <HiMenu />}
         </button>
       </div>
 
-      {open && (
-        <div className="md:hidden bg-white border-t">
-          <div className="flex flex-col px-4 py-3 gap-2">
-            <a href="#about" onClick={() => setOpen(false)}>About</a>
-            <a href="#projects" onClick={() => setOpen(false)}>Projects</a>
-            <a href="#contact" onClick={() => setOpen(false)}>Contact</a>
-            <a href="/resume.pdf" className="block px-4 py-2 bg-indigo-600 text-white rounded-md text-center">Resume</a>
-          </div>
-        </div>
+      {/* Mobile Menu */}
+      {isOpen && (
+        <ul className="md:hidden flex flex-col gap-4 mt-4 bg-gray-800 p-4 rounded-lg">
+          <li><Link href="/" onClick={() => setIsOpen(false)}>Home</Link></li>
+          <li><Link href="/about" onClick={() => setIsOpen(false)}>About</Link></li>
+          <li><Link href="/skills" onClick={() => setIsOpen(false)}>Skills</Link></li>
+          <li><Link href="/projects" onClick={() => setIsOpen(false)}>Projects</Link></li>
+          <li><Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
+        </ul>
       )}
-    </header>
+    </nav>
   );
 }

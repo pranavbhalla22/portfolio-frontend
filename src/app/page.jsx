@@ -1,41 +1,27 @@
-import Hero from "../components/Hero";
-import Skills from "../components/Skills";
-
 export default function Home() {
   return (
-    <>
-      <Hero />
-      <section id="about" className="max-w-4xl mx-auto py-16 px-4">
-        <h2 className="text-2xl font-bold mb-4">About</h2>
-        <p>
-          Hi, I’m Pranav Bhalla — a software development student passionate about building 
-          modern web apps. I enjoy working with Python, Flask, and JavaScript frameworks like 
-          React and Next.js. Currently, I’m learning new technologies and looking for 
-          opportunities to grow in the software industry.
-        </p>
-      </section>
-
-      <Skills />   {/* 👈 Add Skills section here */}
-
-      <section id="projects" className="max-w-6xl mx-auto py-16 px-4">
-        <h2 className="text-2xl font-bold mb-6">Projects</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Add project cards here later */}
-          <div className="p-6 bg-white rounded-xl shadow">
-            Project card placeholder
-          </div>
-          <div className="p-6 bg-white rounded-xl shadow">
-            Project card placeholder
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="max-w-2xl mx-auto py-16 px-4">
-        <h2 className="text-2xl font-bold mb-4">Contact</h2>
-        <p>
-          Contact form will go here (we’ll connect it to Flask later).
-        </p>
-      </section>
-    </>
+    <section className="min-h-screen bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 flex flex-col justify-center items-center text-center text-white pt-20 px-6">
+      <h1 className="text-5xl md:text-6xl font-extrabold animate-fadeIn">
+        Hi, I’m <span className="text-yellow-300">Pranav Bhalla</span> 👋
+      </h1>
+      <p className="mt-6 text-xl md:text-2xl max-w-2xl animate-fadeIn delay-200">
+        A passionate <span className="font-semibold">Software Development Student</span> eager to learn, 
+        build real-world projects, and create impactful applications.
+      </p>
+      <div className="mt-8 flex gap-6 animate-fadeIn delay-300">
+        <a
+          href="/projects"
+          className="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-yellow-300 transition"
+        >
+          View My Work
+        </a>
+        <a
+          href="/contact"
+          className="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition"
+        >
+          Contact Me
+        </a>
+      </div>
+    </section>
   );
 }
