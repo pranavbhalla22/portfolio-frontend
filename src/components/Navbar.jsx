@@ -1,45 +1,29 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
-import { HiMenu, HiX } from "react-icons/hi"; // install react-icons if not installed
+import { motion } from "framer-motion";
+
+const navItems = ["Home", "About", "Skills", "Projects", "Contact"];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <nav className="fixed top-0 left-0 w-full bg-gray-900 text-white px-6 py-4 shadow-md z-50">
-      <div className="flex justify-between items-center">
-        {/* Logo */}
-        <h1 className="text-2xl font-bold">Pranav Bhalla</h1>
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-6">
-          <li><Link href="/">Home</Link></li>
-          <li><Link href="/about">About</Link></li>
-          <li><Link href="/skills">Skills</Link></li>
-          <li><Link href="/projects">Projects</Link></li>
-          <li><Link href="/contact">Contact</Link></li>
-        </ul>
-
-        {/* Mobile Hamburger */}
-        <button
-          className="md:hidden text-3xl"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <HiX /> : <HiMenu />}
-        </button>
+    <nav className="bg-[#0d1117] px-8 py-4 shadow-md">
+      <div className="flex justify-center items-center space-x-8">
+        {navItems.map((item, index) => (
+          <motion.div
+            key={index}
+            whileHover={{ scale: 1.1, y: -3 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link
+              href={`/${item.toLowerCase()}`}
+              className="relative text-gray-300 hover:text-blue-400 font-medium transition-colors duration-300"
+            >
+              {item}
+              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full" />
+            </Link>
+          </motion.div>
+        ))}
       </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <ul className="md:hidden flex flex-col gap-4 mt-4 bg-gray-800 p-4 rounded-lg">
-          <li><Link href="/" onClick={() => setIsOpen(false)}>Home</Link></li>
-          <li><Link href="/about" onClick={() => setIsOpen(false)}>About</Link></li>
-          <li><Link href="/skills" onClick={() => setIsOpen(false)}>Skills</Link></li>
-          <li><Link href="/projects" onClick={() => setIsOpen(false)}>Projects</Link></li>
-          <li><Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
-        </ul>
-      )}
     </nav>
   );
 }

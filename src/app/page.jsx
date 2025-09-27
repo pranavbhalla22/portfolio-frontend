@@ -1,27 +1,65 @@
+"use client";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
+
 export default function Home() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
-    <section className="min-h-screen bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 flex flex-col justify-center items-center text-center text-white pt-20 px-6">
-      <h1 className="text-5xl md:text-6xl font-extrabold animate-fadeIn">
-        Hi, I’m <span className="text-yellow-300">Pranav Bhalla</span> 👋
-      </h1>
-      <p className="mt-6 text-xl md:text-2xl max-w-2xl animate-fadeIn delay-200">
-        A passionate <span className="font-semibold">Software Development Student</span> eager to learn, 
-        build real-world projects, and create impactful applications.
-      </p>
-      <div className="mt-8 flex gap-6 animate-fadeIn delay-300">
-        <a
-          href="/projects"
-          className="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-yellow-300 transition"
-        >
-          View My Work
-        </a>
-        <a
-          href="/contact"
-          className="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition"
+    <div className="min-h-screen animated-bg flex flex-col items-center justify-center text-white px-6 text-center">
+      <motion.h1
+        className="text-5xl md:text-6xl font-extrabold mb-4"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        Hi, I’m Pranav Bhalla 
+      </motion.h1>
+
+      <motion.p
+        className="text-lg md:text-xl max-w-2xl mb-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5, duration: 1 }}
+      >
+        A passionate Software Development Student eager to learn, build real-world
+        projects, and create impactful applications.
+      </motion.p>
+
+      <div className="flex space-x-4">
+        <Link href="/projects">
+          <motion.button
+            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold shadow-lg"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            View My Work
+          </motion.button>
+        </Link>
+
+        <button
+          onClick={() => setShowModal(true)}
+          className="px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg text-white font-semibold shadow-lg"
         >
           Contact Me
-        </a>
+        </button>
       </div>
-    </section>
+
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-black">
+            <h2 className="text-xl font-bold mb-4">Contact Me</h2>
+            <p>Email: pranav@example.com</p>
+            <button
+              onClick={() => setShowModal(false)}
+              className="mt-4 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

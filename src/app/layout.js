@@ -2,16 +2,16 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 
 export const metadata = {
-  title: "Pranav Bhalla — Portfolio",
-  description: "My portfolio built with Next.js and TailwindCSS",
+  title: "My Portfolio",
+  description: "Professional portfolio of Pranav Bhalla",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-gray-950 text-white">
         <Navbar />
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );
