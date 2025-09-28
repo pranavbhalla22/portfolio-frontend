@@ -1,51 +1,40 @@
-// src/components/Hero.jsx
 "use client";
-
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="h-screen flex flex-col justify-center items-center bg-[#0A192F] text-center px-6">
+    <section className="min-h-screen flex flex-col justify-center items-center bg-emerald-dark text-white px-6">
       <motion.h1
-        className="text-5xl md:text-7xl font-bold text-[#64FFDA] mb-4"
-        initial={{ opacity: 0, y: -40 }}
+        className="text-5xl md:text-7xl font-extrabold mb-6"
+        initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1 }}
       >
-        Hi, I'm <span className="text-white">Pranav Bhalla</span>
+        Hi, I’m <span className="text-gold-base">Pranav Bhalla</span>
       </motion.h1>
 
-      <motion.h2
-        className="text-lg md:text-2xl text-[#CCD6F6] mb-8"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.3 }}
-      >
-        Full-Stack Developer | Python & Next.js Enthusiast
-      </motion.h2>
-
-      <motion.div
+      <motion.p
+        className="text-lg md:text-xl text-gold-light mb-8 max-w-2xl text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.6 }}
+        transition={{ delay: 0.5, duration: 1 }}
       >
-        <Link
-          href="/projects"
-          className="bg-[#64FFDA] text-[#0A192F] font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-[#52e6c7] transition"
-        >
-          View My Work
-        </Link>
-      </motion.div>
+        A passionate developer creating elegant, user-friendly solutions with modern
+        web technologies.
+      </motion.p>
 
-      {/* Scroll Arrow */}
       <motion.div
-        className="absolute bottom-10"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 1.5 }}
+        className="flex gap-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
       >
-        <ArrowDown className="text-[#64FFDA]" size={28} />
+        <button className="px-6 py-3 rounded-xl bg-gold-base text-emerald-dark font-semibold hover:bg-gold-light transition-all shadow-md">
+          View My Work
+        </button>
+        <button className="px-6 py-3 rounded-xl border-2 border-gold-base text-gold-base font-semibold hover:bg-gold-base hover:text-emerald-dark transition-all">
+          Contact Me
+        </button>
       </motion.div>
     </section>
   );
