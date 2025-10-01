@@ -1,29 +1,56 @@
-"use client";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-const navItems = ["Home", "About", "Skills", "Projects", "Contact"];
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
-export default function Navbar() {
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "Projects", path: "/projects" },
+    { name: "Contact", path: "/contact" },
+  ];
+
   return (
-    <nav className="bg-[#0d1117] px-8 py-4 shadow-md">
-      <div className="flex justify-center items-center space-x-8">
-        {navItems.map((item, index) => (
-          <motion.div
-            key={index}
-            whileHover={{ scale: 1.1, y: -3 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Link
-              href={`/${item.toLowerCase()}`}
-              className="relative text-gray-300 hover:text-blue-400 font-medium transition-colors duration-300"
-            >
-              {item}
-              <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full" />
-            </Link>
-          </motion.div>
-        ))}
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-background/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+      }`}
+    >
+      <div className="container mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          <Link to="/" className="text-2xl font-bold text-accent hover:text-accent-glow transition-colors">
+            PB
+          </Link>
+
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`transition-colors duration-300 font-medium relative group ${
+                  location.pathname === link.path
+                    ? "text-accent"
+                    : "text-foreground hover:text-accent"
+                }`}
+              >
+                {link.name}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;

@@ -1,37 +1,66 @@
-import { FaReact, FaPython, FaNodeJs, FaDocker } from "react-icons/fa";
-import { SiNextdotjs, SiTailwindcss, SiFlask } from "react-icons/si";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
-export default function Skills() {
-  const skills = [
-    { name: "React", icon: <FaReact className="text-sky-400" size={40} /> },
-    { name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white" size={40} /> },
-    { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-400" size={40} /> },
-    { name: "Python", icon: <FaPython className="text-yellow-500" size={40} /> },
-    { name: "Flask", icon: <SiFlask className="text-gray-700 dark:text-white" size={40} /> },
-    { name: "Node.js", icon: <FaNodeJs className="text-green-600" size={40} /> },
-    { name: "Docker", icon: <FaDocker className="text-blue-500" size={40} /> },
+const Skills = () => {
+  const skillCategories = [
+    {
+      title: "Frontend",
+      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML5", "CSS3", "JavaScript"],
+      color: "from-blue-500/20 to-cyan-500/20",
+    },
+    {
+      title: "Backend",
+      skills: ["Python", "Flask", "Node.js", "REST APIs", "PostgreSQL", "MongoDB"],
+      color: "from-green-500/20 to-emerald-500/20",
+    },
+    {
+      title: "Tools & Others",
+      skills: ["Git", "GitHub", "VS Code", "Postman", "Docker", "AWS", "Vercel"],
+      color: "from-purple-500/20 to-pink-500/20",
+    },
   ];
 
   return (
-    <section id="skills" className="bg-gradient-to-r from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-800 py-20">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold mb-12 text-gray-800 dark:text-white tracking-wide uppercase">
-          Skills
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8">
-          {skills.map((skill, index) => (
-            <div
+    <section id="skills" className="py-20 relative">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            My <span className="text-accent">Skills</span>
+          </h2>
+          <div className="w-24 h-1 bg-accent mx-auto rounded-full" />
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            Technologies and tools I work with to bring ideas to life
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {skillCategories.map((category, index) => (
+            <Card
               key={index}
-              className="flex flex-col items-center justify-center bg-white dark:bg-gray-900 shadow-md p-6 rounded-xl hover:shadow-xl transition transform hover:-translate-y-1"
+              className={`p-8 bg-gradient-to-br ${category.color} backdrop-blur-sm border-border hover:border-accent transition-all duration-300 hover:scale-105 animate-fade-in-up`}
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
-              {skill.icon}
-              <p className="mt-3 text-gray-700 dark:text-gray-300 font-medium text-lg">
-                {skill.name}
-              </p>
-            </div>
+              <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+                <span className="w-2 h-2 bg-accent rounded-full animate-glow" />
+                {category.title}
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {category.skills.map((skill, idx) => (
+                  <Badge
+                    key={idx}
+                    variant="secondary"
+                    className="bg-card/80 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors cursor-default text-sm py-1.5 px-4"
+                  >
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            </Card>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Skills;

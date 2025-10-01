@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import ParticlesBackground from "../components/ParticlesBackground"; // 
+import ParticlesBackground from "../components/ParticlesBackground"; 
 
 export default function Home() {
   const roles = ["Software Developer", "Problem Solver", "Tech Enthusiast"];
@@ -17,7 +17,7 @@ export default function Home() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center text-white px-6">
+    <section className="relative min-h-screen flex items-center justify-center text-white px-6 bg-emerald-900">
       {/* Particle background */}
       <ParticlesBackground />
 
@@ -29,19 +29,19 @@ export default function Home() {
           transition={{ duration: 1 }}
         >
           <h1 className="text-5xl font-bold mb-4">
-            Hi, I’m <span className="text-blue-400">Pranav Bhalla 👋</span>
+            Hi, I’m <span className="text-gold">Pranav Bhalla </span>
           </h1>
           <h2 className="text-2xl mb-6 text-gray-300">{roles[index]}</h2>
           <p className="text-lg text-gray-400 mb-6">
-            A passionate Software Development student eager to learn, build real-world projects,
-            and create impactful applications.
+            A passionate Software Development student eager to learn, build
+            real-world projects, and create impactful applications.
           </p>
           <div className="flex space-x-4">
             <Link href="#projects">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg shadow-md font-semibold"
+                className="px-6 py-3 bg-gold text-emerald-900 hover:bg-yellow-400 rounded-lg shadow-md font-semibold"
               >
                 View Projects
               </motion.button>
@@ -59,7 +59,7 @@ export default function Home() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-green-500 hover:bg-green-600 rounded-lg shadow-md font-semibold"
+              className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 rounded-lg shadow-md font-semibold"
             >
               Download Resume
             </a>
@@ -75,7 +75,7 @@ export default function Home() {
         >
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="w-64 h-64 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 p-1 shadow-lg"
+            className="w-64 h-64 rounded-full bg-gradient-to-r from-gold to-yellow-500 p-1 shadow-lg"
           >
             <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center">
               <span className="text-2xl text-gray-300">[Your Image]</span>
