@@ -2,14 +2,14 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 
 export const metadata = {
-  title: "My Portfolio",
-  description: "Professional portfolio of Pranav Bhalla",
+  title: "Pranav Bhalla - Portfolio",
+  description: "Software Developer Portfolio",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-gray-950 text-white">
+      <body>
         <Navbar />
         {children}
       </body>

@@ -1,0 +1,87 @@
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  color: white;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero-container {
+    flex-direction: row;
+    text-align: left;
+    padding: 6rem 8rem;
+  }
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #fbbf24;
+}
+
+.hero-subtitle {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #d1d5db;
+}
+
+.hero-description {
+  margin-top: 1.5rem;
+  color: #d1d5db;
+  max-width: 30rem;
+}
+
+.hero-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: #fbbf24;
+  color: black;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-outline {
+  border: 2px solid #fbbf24;
+  color: #fbbf24;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background: #fbbf24;
+  color: black;
+}
+
+.hero-right {
+  margin-top: 2rem;
+}
+
+.profile-ring {
+  border: 8px solid #fbbf24;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+.profile-img {
+  border-radius: 50%;
+}

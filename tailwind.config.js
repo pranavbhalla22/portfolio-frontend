@@ -1,17 +1,18 @@
-// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
   theme: {
     extend: {
       colors: {
-        emerald: {
-          DEFAULT: '#047857', // Tailwind’s emerald-700
-        },
-        gold: {
-          DEFAULT: '#FFD700', // classic gold
-          dark: '#B8860B',
-        },
+        background: '#0f172a',    // gray-900
+        foreground: '#f8fafc',    // slate-50
+        accent: '#eab308',        // yellow-500
       },
     },
   },
+  plugins: [],
 }

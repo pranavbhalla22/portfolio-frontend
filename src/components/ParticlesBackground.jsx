@@ -1,42 +1,31 @@
 "use client";
-
-import { motion } from "framer-motion";
+import { useCallback } from "react";
 import Particles from "react-tsparticles";
+import { loadSlim } from "tsparticles-slim";
 
 export default function ParticlesBackground() {
+  const particlesInit = useCallback(async (engine) => {
+    await loadSlim(engine);
+  }, []);
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 2 }}
-      className="absolute inset-0 -z-10"
-    >
-      <Particles
-        id="tsparticles"
-        options={{
-          fullScreen: { enable: false },
-          background: { color: "transparent" },
-          particles: {
-            number: { value: 60 },
-            size: { value: 3 },
-            move: { enable: true, speed: 1 },
-            opacity: { value: 0.6 },
-            shape: { type: "circle" },
-            links: {
-              enable: true,
-              color: "#3b82f6",
-              distance: 150,
-              opacity: 0.4,
-              width: 1,
-            },
+    <Particles
+      id="tsparticles"
+      init={particlesInit}
+      options={{
+        background: { color: "transparent" },
+        fpsLimit: 60,
+        particles: {
+          color: { value: "#fbbf24" },
+          move: { enable: true, speed: 0.5, random: true },
+          number: { value: 40, density: { enable: true, area: 800 } },
+          opacity: {
+            value: { min: 0.3, max: 0.7 },
+            animation: { enable: true, speed: 1, sync: false },
           },
-          interactivity: {
-            events: {
-              onHover: { enable: true, mode: "repulse" },
-            },
-          },
-        }}
-      />
-    </motion.div>
+          size: { value: { min: 1, max: 3 } },
+        },
+      }}
+    />
   );
 }
