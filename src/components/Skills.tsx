@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+
 const Skills = () => {
   const skillCategories = [
     {
