@@ -9,10 +9,21 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  plugins: [
+    react(),
+    // Only enable componentTagger in development mode
+    mode === "development" && componentTagger(),
+  ].filter(Boolean),
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(__dirname, "./src"), // ✅ Ensures "@/components/..." works in Vercel
+    },
+  },
+  build: {
+    outDir: "dist", // ✅ Ensures Vercel uses the correct build folder
+    sourcemap: false, // optional but keeps the build clean
+    rollupOptions: {
+      input: path.resolve(__dirname, "index.html"),
     },
   },
 }));
