@@ -7,13 +7,15 @@ import Footer from "@/components/Footer";
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <ParticlesBackground />
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Footer />
+      <div className="relative z-10">
+        <Navbar />
+        <Hero />
+        <About />
+        <Skills />
+        <Footer />
+      </div>
     </div>
   );
 };

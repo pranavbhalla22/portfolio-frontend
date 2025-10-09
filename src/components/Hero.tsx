@@ -1,13 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import profilePlaceholder from "@/assets/profile-placeholder.png";
+import ParticlesBackground from "@/components/ParticlesBackground"; // ✅ Added this line
 
 const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 md:px-16">
-      <div className="container mx-auto">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 md:px-16"
+    >
+      {/* ✅ Particle background placed behind everything */}
+      <ParticlesBackground className="absolute inset-0 -z-10" />
+
+      <div className="container mx-auto relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           {/* Left Section */}
           <div className="flex-1 text-center md:text-left animate-fade-in">
@@ -27,14 +34,14 @@ const Hero = () => {
               <Button
                 size="lg"
                 className="bg-accent text-accent-foreground hover:bg-accent-glow transition-all duration-300"
-                onClick={() => navigate('/projects')}
+                onClick={() => navigate("/projects")}
               >
                 View Projects
               </Button>
               <Button
                 size="lg"
                 className="bg-accent text-accent-foreground hover:bg-accent-glow transition-all duration-300"
-                onClick={() => navigate('/contact')}
+                onClick={() => navigate("/contact")}
               >
                 Contact Me
               </Button>
@@ -42,7 +49,7 @@ const Hero = () => {
                 size="lg"
                 variant="outline"
                 className="border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300"
-                onClick={() => window.open('/resume.pdf', '_blank')}
+                onClick={() => window.open("/resume.pdf", "_blank")}
               >
                 Download Resume
               </Button>
@@ -50,7 +57,10 @@ const Hero = () => {
           </div>
 
           {/* Right Section - Profile Image */}
-          <div className="flex-1 flex justify-center animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <div
+            className="flex-1 flex justify-center animate-fade-in"
+            style={{ animationDelay: "0.2s" }}
+          >
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-8 border-accent p-2 animate-glow">
                 <img

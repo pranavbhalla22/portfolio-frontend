@@ -1,62 +1,110 @@
-@import "tailwindcss";
+/* === Tailwind Core === */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* ==============================
-   🎨 Design Tokens (CSS Variables)
-   ============================== */
+/* === Base + Theme Colors === */
 @layer base {
   :root {
-    /* Portfolio Color Palette */
+    /* === Base and Brand Colors === */
     --background: 158 64% 8%;
     --foreground: 0 0% 100%;
 
+    /* === Card === */
     --card: 158 50% 12%;
     --card-foreground: 0 0% 100%;
 
+    /* === Popover === */
     --popover: 158 50% 12%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 158 64% 25%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 158 64% 35%;
+    /* === Brand Gold Accent === */
+    --primary: 45 93% 58%; /* Gold tone */
+    --primary-foreground: 0 0% 10%;
 
-    --secondary: 158 30% 20%;
+    /* === Secondary and Surfaces === */
+    --secondary: 158 64% 12%;
     --secondary-foreground: 0 0% 100%;
 
+    /* === Muted === */
     --muted: 158 30% 18%;
     --muted-foreground: 158 10% 70%;
 
+    /* === Accent and Hover === */
     --accent: 45 93% 58%;
-    --accent-foreground: 158 64% 8%;
+    --accent-foreground: 0 0% 10%;
     --accent-glow: 45 100% 65%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* === Error / Destructive === */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 158 30% 25%;
+    /* === Border, Ring, Input === */
+    --border: 158 30% 20%;
     --input: 158 30% 20%;
     --ring: 45 93% 58%;
 
     --radius: 0.75rem;
+  }
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(158 64% 15%) 0%, hsl(158 64% 8%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(45 93% 58%) 0%, hsl(45 100% 65%) 100%);
-    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(158 64% 8% / 0.8) 100%);
+  html {
+    scroll-behavior: smooth;
+  }
 
-    /* Shadows */
-    --shadow-glow: 0 0 40px hsl(45 93% 58% / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(158 64% 8% / 0.5);
-    --shadow-elegant: 0 20px 60px -20px hsl(158 64% 8% / 0.7);
+  body {
+    background: radial-gradient(
+        circle at 20% 20%,
+        hsl(158 64% 12%) 0%,
+        hsl(158 64% 8%) 50%,
+        hsl(158 64% 6%) 100%
+      )
+      fixed;
+    color: hsl(var(--foreground));
+    font-family: "Inter", sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
 
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  #tsparticles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
   }
 }
 
-/* ==============================
-   🌟 Custom Utilities
-   ============================== */
+/* === Floating Golden Dots === */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(
+    hsl(var(--accent) / 0.3) 1px,
+    transparent 1px
+  );
+  background-size: 50px 50px;
+  opacity: 0.08;
+  z-index: 0;
+  animation: moveDots 60s linear infinite;
+}
+
+@keyframes moveDots {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100px 100px;
+  }
+}
+
+/* === Glow Animation Utility === */
 @layer utilities {
   .animate-glow {
     animation: glow 2s ease-in-out infinite;
@@ -72,27 +120,31 @@
   }
 }
 
-/* ==============================
-   📌 Base Styles
-   ============================== */
+/* === Link Hover Glow === */
+@layer base {
+  a {
+    @apply transition-colors duration-300;
+  }
+  a:hover {
+    color: hsl(var(--accent));
+    text-shadow: 0 0 8px hsl(var(--accent-glow) / 0.7);
+  }
+}
+
+/* === Navbar Typography === */
+nav {
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.02em;
+  z-index: 50;
+}
+
+/* === Button Styling Reset (Shadcn Support) === */
 @layer base {
   * {
-    border-color: hsl(var(--border));
+    @apply border-border;
   }
 
   body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-    font-family: 'Inter', Arial, sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  #tsparticles {
-    position: fixed;
-    inset: 0; /* shorthand for top, right, bottom, left = 0 */
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    @apply bg-background text-foreground;
   }
 }
