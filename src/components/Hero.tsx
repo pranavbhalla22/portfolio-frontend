@@ -23,29 +23,38 @@ const Hero = () => {
               build real-world projects, and create impactful applications.
             </p>
 
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              <Button
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent-glow transition-all duration-300"
-                onClick={() => navigate('/projects')}
-              >
-                View Projects
-              </Button>
-              <Button
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent-glow transition-all duration-300"
-                onClick={() => navigate('/contact')}
-              >
-                Contact Me
-              </Button>
-<a
-  href="/resume.pdf"
-  download="Pranav_Bhalla_Resume.pdf"
-  className="border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300 inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold"
->
-  Download Resume
-</a>
-</div>
+  <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+    <Button
+      size="lg"
+      className="bg-accent text-accent-foreground hover:bg-accent-glow transition-all duration-300"
+      onClick={() => navigate('/projects')}
+    >
+      View Projects
+    </Button>
+    <Button
+      size="lg"
+      className="bg-accent text-accent-foreground hover:bg-accent-glow transition-all duration-300"
+      onClick={() => navigate('/contact')}
+    >
+      Contact Me
+    </Button>
+    <Button
+      asChild
+      size="lg"
+      variant="outline"
+      className="border-2 border-accent text-accent font-semibold px-8 py-4 rounded-lg 
+     hover:bg-accent hover:text-accent-foreground hover:shadow-[0_0_20px_rgba(255,215,0,0.5)] 
+     transition-all duration-300 ease-in-out"
+    >
+      <a
+        href="/resume.pdf"
+        download="Pranav_Bhalla_Resume.pdf"
+        className="border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300 inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold"
+      >
+        Download Resume
+      </a>
+    </Button>
+  </div>
 </div>
 
 
