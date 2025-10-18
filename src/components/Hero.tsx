@@ -38,16 +38,16 @@ const Hero = () => {
               >
                 Contact Me
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300"
-                onClick={() => window.open('/resume.pdf', '_blank')}
-              >
-                Download Resume
-              </Button>
-            </div>
-          </div>
+<a
+  href="/resume.pdf"
+  download="Pranav_Bhalla_Resume.pdf"
+  className="border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300 inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold"
+>
+  Download Resume
+</a>
+</div>
+</div>
+
 
           {/* Right Section - Profile Image */}
           <div className="flex-1 flex justify-center animate-fade-in" style={{ animationDelay: "0.2s" }}>
