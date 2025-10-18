@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react"; // 🧹 removed Twitter
+import { Github, Linkedin, Mail } from "lucide-react"; 
 
 const Footer = () => {
   const socialLinks = [

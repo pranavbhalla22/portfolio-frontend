@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import profilePlaceholder from "@/assets/profile-placeholder.png";
+import profilePlaceholder from "@/assets/profile-placeholder.jpg";
 
 const Hero = () => {
   const navigate = useNavigate();
