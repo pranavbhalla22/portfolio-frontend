@@ -20,8 +20,8 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    outDir: "dist", // ✅ Ensures Vercel uses the correct build folder
-    sourcemap: false, // optional but keeps the build clean
+    outDir: "dist", // 
+    sourcemap: false, 
     rollupOptions: {
       input: path.resolve(__dirname, "index.html"),
     },
