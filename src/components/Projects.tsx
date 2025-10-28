@@ -1,23 +1,25 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
-import projectImage1 from "@/assets/project-1.jpg";
+import projectImage1 from "@/assets/portfolio.png";
 import projectImage2 from "@/assets/project-2.jpg";
 import projectImage3 from "@/assets/project-3.jpg";
 
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with payment integration, user authentication, and admin dashboard.",
+      title: "Personal Portfolio Website",
+      description:
+        "A modern and responsive portfolio website built using React, TypeScript, and Tailwind CSS. It highlights my projects, skills, and background while maintaining a sleek dark-gold theme.",
       image: projectImage1,
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      liveLink: "#",
-      githubLink: "#",
+      tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+      liveLink: "https://pranavbhalla.vercel.app",
+      githubLink: "https://github.com/pranavbhalla22/portfolio-frontend",
     },
     {
       title: "Task Management App",
-      description: "Collaborative task management tool with real-time updates, team collaboration features, and analytics.",
+      description:
+        "Collaborative task management tool with real-time updates, team collaboration features, and analytics.",
       image: projectImage2,
       tags: ["Next.js", "Flask", "PostgreSQL", "WebSockets"],
       liveLink: "#",
@@ -25,7 +27,8 @@ const Projects = () => {
     },
     {
       title: "Portfolio CMS",
-      description: "Content management system for creating and managing portfolio websites with drag-and-drop builder.",
+      description:
+        "Content management system for creating and managing portfolio websites with drag-and-drop builder.",
       image: projectImage3,
       tags: ["React", "Python", "AWS", "Docker"],
       liveLink: "#",
@@ -85,7 +88,8 @@ const Projects = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex-1 border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                    className="flex-1 border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+                    onClick={() => window.open(project.liveLink, "_blank")}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Live Demo
@@ -93,7 +97,8 @@ const Projects = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex-1 border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                    className="flex-1 border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+                    onClick={() => window.open(project.githubLink, "_blank")}
                   >
                     <Github className="w-4 h-4 mr-2" />
                     Code
