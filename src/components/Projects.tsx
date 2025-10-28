@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import projectImage1 from "@/assets/portfolio.png";
-import projectImage2 from "@/assets/project-2.jpg";
+import projectImage2 from "@/assets/vape.png";
 import projectImage3 from "@/assets/project-3.jpg";
 
 const Projects = () => {
@@ -17,13 +17,13 @@ const Projects = () => {
       githubLink: "https://github.com/pranavbhalla22/portfolio-frontend",
     },
     {
-      title: "Task Management App",
-      description:
-        "Collaborative task management tool with real-time updates, team collaboration features, and analytics.",
-      image: projectImage2,
-      tags: ["Next.js", "Flask", "PostgreSQL", "WebSockets"],
-      liveLink: "#",
-      githubLink: "#",
+       title: "Vape Vault Website",
+  description:
+    "A modern e-commerce website developed for a vape store, integrating online sales with the sponsor’s existing POS system. It enables customers to browse products, check real-time stock, and place online orders, while allowing admins to manage inventory and track analytics effortlessly.",
+  image: projectImage2,
+  tags: ["Next.js", "Node.js", "MySQL", "Tailwind CSS", "Vercel"],
+  liveLink: "https://vape-spa.vercel.app/", 
+  githubLink: "https://github.com/karan-sidhu22/Vape-SPA", 
     },
     {
       title: "Portfolio CMS",
