@@ -47,7 +47,7 @@ const Hero = () => {
      transition-all duration-300 ease-in-out"
     >
       <a
-        href="/resume.pdf"
+        href="/resume1.pdf"
         download="Pranav_Bhalla_Resume.pdf"
         className="border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300 inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold"
       >
