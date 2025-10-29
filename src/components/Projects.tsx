@@ -26,14 +26,14 @@ const Projects = () => {
   githubLink: "https://github.com/karan-sidhu22/Vape-SPA", 
     },
     {
-      title: "Portfolio CMS",
-      description:
-        "Content management system for creating and managing portfolio websites with drag-and-drop builder.",
-      image: projectImage3,
-      tags: ["React", "Python", "AWS", "Docker"],
-      liveLink: "#",
-      githubLink: "#",
-    },
+  title: "SkillQuest (In Progress)",
+  description:
+    "A gamified learning platform that turns skill development into an interactive experience. Users can earn XP, unlock achievements, and climb leaderboards while completing personalized learning challenges. Built with a focus on motivation and progress tracking.",
+  image: "
+  tags: ["React", "Supabase", "TypeScript", "Tailwind CSS", "Gamification"],
+  liveLink: "", 
+  githubLink: "https://github.com/pranavbhalla22/SkillQuest", 
+},
   ];
 
   return (
