@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import projectImage1 from "@/assets/portfolio.png";
 import projectImage2 from "@/assets/vape.png";
-import projectImage3 from "@/assets/project-3.jpg";
+import projectImage3 from "@/assets/skillquest.png";
 
 const Projects = () => {
   const projects = [
@@ -25,11 +25,11 @@ const Projects = () => {
   liveLink: "https://vape-spa.vercel.app/", 
   githubLink: "https://github.com/karan-sidhu22/Vape-SPA", 
     },
-    {
+{
   title: "SkillQuest (In Progress)",
   description:
     "A gamified learning platform that turns skill development into an interactive experience. Users can earn XP, unlock achievements, and climb leaderboards while completing personalized learning challenges. Built with a focus on motivation and progress tracking.",
-  image: "
+  image: projectImage3,
   tags: ["React", "Supabase", "TypeScript", "Tailwind CSS", "Gamification"],
   liveLink: "", 
   githubLink: "https://github.com/pranavbhalla22/SkillQuest", 
