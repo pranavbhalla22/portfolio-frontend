@@ -13,7 +13,7 @@ const Projects = () => {
         "A modern and responsive portfolio website built using React, TypeScript, and Tailwind CSS. It highlights my projects, skills, and background while maintaining a sleek dark-gold theme.",
       image: projectImage1,
       tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-      liveLink: "https://pranavbhalla.vercel.app",
+      liveLink: "https://portfolio-frontend-5rtqtdyae-pranav-bhallas-projects.vercel.app/",
       githubLink: "https://github.com/pranavbhalla22/portfolio-frontend",
     },
     {
